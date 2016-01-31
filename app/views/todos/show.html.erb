@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<div id="titre"> Tâche : 
+  <%= @todo.title %>
+</div>
+
+<div id="contenuTitre">Contenu:</div>
+<div id="contenu">
+<%= @todo.content %>
+</div>
+
+<p>
+	<% if @todo.complete == true %>
+	Cette tâche a été réalisée
+	<% else%>
+	Cette tâche n'a pas été réalisée
+	<%end%>
+</p>
+
+
+<%= button_to 'Modifier', edit_todo_path(@todo), :method => :get, :class=> "bouton" %>  
+<%= button_to "Supprimer", @todo, :method => :delete, :class=> "bouton" %>
+<%= button_to 'Retour aux tâches', todos_path, :method => :get , :class=> "bouton"%>
